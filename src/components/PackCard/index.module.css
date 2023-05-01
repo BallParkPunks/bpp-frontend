@@ -1,0 +1,85 @@
+.packContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  min-width: 500px;
+  height: 600px;
+  background-color: #363638;
+  border: 1px solid #fff;
+
+  margin-top: 50px;
+
+  transition-duration: 0.25s;
+
+  /* border-radius: 20px; */
+}
+
+.packContainer:hover {
+  border: 1px solid #e22120;
+}
+
+.pack {
+  z-index: 3;
+  width: 400px;
+  height: 400px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+}
+
+.packContainer:hover .pack {
+  transform: translateY(-75px);
+}
+.packContainer:hover .buyButton {
+  border: 1px solid #e22120;
+}
+
+.buyButton {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1.5px solid #fff;
+  background-color: #1f1f21;
+  transition-duration: 0.25s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  margin-top: -100px;
+}
+
+.buyText {
+  cursor: pointer;
+  user-select: none;
+  padding-bottom: 1px;
+  background-image: linear-gradient(#fff 0 0);
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s, background-position 0s 0.3s;
+  color: #fff;
+  font-family: "Anton", sans-serif;
+}
+
+.buyButton:hover .buyText {
+  cursor: pointer;
+  background-position: 100% 100%;
+  background-size: 100% 1px;
+}
+
+.packDescription {
+  font-family: "Roboto Condensed", sans-serif;
+  color: #fff;
+  user-select: none;
+
+  padding-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.indent {
+  margin-top: 15px;
+  text-indent: 20px;
+}
