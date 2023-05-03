@@ -29,7 +29,7 @@ interface IRootProps extends AppProps {
   Component: NextPage<any, IPageProps>;
 }
 
-const CHAIN_ID = process.env.IS_DEV === "true" ? "0x11155111" : "0x1";
+const CHAIN_ID = `0x${process.env.CHAIN_ID}`;
 const NETWORK_NAME = process.env.IS_DEV === "true" ? "sepolia" : "mainnet";
 
 export default function App(props: IRootProps) {

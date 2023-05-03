@@ -4,6 +4,7 @@ import styles from "../src/styles/pages/index.module.css";
 import { IPageProps } from "./_app";
 import Nav from "@/src/components/Nav";
 import PackCard from "@/src/components/PackCard";
+import BannerText from "@/src/components/BannerText";
 
 const Home: NextPage<IPageProps> = ({
   connectedAddress,
@@ -23,6 +24,7 @@ const Home: NextPage<IPageProps> = ({
           connectWallet={connectWallet}
           disconnect={disconnect}
         />
+        <BannerText displayText={"Lorem ipsum dolor sit amet"} top={80} /> 
         <div className={styles.containerOverlay}></div>
         <div className={styles.bodyContainer}>
           <PackCard

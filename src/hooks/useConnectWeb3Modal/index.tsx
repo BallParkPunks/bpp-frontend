@@ -17,9 +17,7 @@ const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS
 const useConnectWeb3Modal = (web3Modal?: Web3Modal) => {
   const [contractAddress, setContractAddress] =
     useState<string>(CONTRACT_ADDRESS);
-  const [connectedAddress, setConnectedAddress] = useState<string | undefined>(
-    undefined
-  );
+  const [connectedAddress, setConnectedAddress] = useState<string>();
   const [contract, setContract] = useState<Contract>();
 
   const [web3Provider, setWeb3Provider] = useState<Web3>();
@@ -44,7 +42,7 @@ const useConnectWeb3Modal = (web3Modal?: Web3Modal) => {
   useEffect(() => {
     // Automatically connect wallet if user is already connected
 
-    if (web3Modal && web3Modal.cachedProvider) {
+    if (web3Modal && web3Modal.cachedProvider) { 
       connectWallet();
     }
   }, [web3Modal]);
@@ -91,10 +89,11 @@ const useConnectWeb3Modal = (web3Modal?: Web3Modal) => {
           // console.log('User Closed Modal');
           return;
         } else {
+          console.log(`useWeb3Modal hook provider error: ${error.toString()}`); 
           throw new Error(error.toString());
         }
       });
-      if (provider) {
+      if (provider) { 
         if (!isListening) {
           addListeners(provider);
         }
@@ -106,6 +105,7 @@ const useConnectWeb3Modal = (web3Modal?: Web3Modal) => {
             const desiredChain = process.env.CHAIN_ID || -1;
             if (chainId != desiredChain) {
               if (desiredChain === -1) {
+                console.log(`CHAIN_ID environment variable undefined`); 
                 continue;
               }
               const r = await changeNetwork(web3);

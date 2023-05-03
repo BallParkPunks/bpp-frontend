@@ -3,11 +3,12 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-const isDev = false;
+const isDev = true;
 
 const env = {
-  IS_DEV: isDev ? 'true' : 'false',
-  GA_TAG: '',
+  IS_DEV: isDev ? "true" : "false",
+  GA_TAG: "",
+  CHAIN_ID: isDev ? "11155111" : "1",
 };
 
 module.exports = {
