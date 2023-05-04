@@ -2,7 +2,7 @@
   position: fixed;
   width: 100%;
   height: 80px;
-  background-color: #363638;
+  background: linear-gradient(175deg, #111111 50%, #363638 100%);
   border-bottom: 1px solid #fff;
   display: flex;
   align-items: center;

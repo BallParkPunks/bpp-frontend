@@ -79,11 +79,7 @@ button {
 }
 
 .web3modal-provider-container:hover {
-  background: linear-gradient(
-    135deg,
-    #1f1f21 0%,
-    #363638 100%
-  ) !important;
+  background: linear-gradient(135deg, #1f1f21 0%, #363638 100%) !important;
   border-radius: 0px;
 }
 
@@ -105,13 +101,13 @@ button {
 }
 
 .web3modal-provider-name {
-  font-family: "Audiowide";
+  font-family: "Anton", sans-serif;
   font-weight: normal !important;
   color: #fff !important;
 }
 
 .web3modal-provider-description {
-  font-family: "IBM Plex Mono";
+  font-family: "Roboto Condensed", sans-serif;
   color: #fff !important;
 }
 
@@ -122,7 +118,7 @@ button {
 
 .Toastify__toast-body {
   color: #fff;
-  font-family: "IBM Plex Mono";
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 13px;
 }
 

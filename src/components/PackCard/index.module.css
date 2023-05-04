@@ -10,9 +10,7 @@
 
   margin-top: 100px;
 
-  transition-duration: 0.25s;
-
-  /* border-radius: 20px; */
+  transition-duration: 0.25s; 
 }
 
 .packContainer:hover {

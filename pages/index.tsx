@@ -5,6 +5,7 @@ import { IPageProps } from "./_app";
 import Nav from "@/src/components/Nav";
 import PackCard from "@/src/components/PackCard";
 import BannerText from "@/src/components/BannerText";
+import Footer from "@/src/components/Footer";
 
 const Home: NextPage<IPageProps> = ({
   connectedAddress,
@@ -24,7 +25,7 @@ const Home: NextPage<IPageProps> = ({
           connectWallet={connectWallet}
           disconnect={disconnect}
         />
-        <BannerText displayText={"Lorem ipsum dolor sit amet"} top={80} /> 
+        <BannerText displayText={"Lorem ipsum dolor sit amet"} top={80} />
         <div className={styles.containerOverlay}></div>
         <div className={styles.bodyContainer}>
           <PackCard
@@ -54,7 +55,7 @@ const Home: NextPage<IPageProps> = ({
               `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
             ]}
           />
-          <PackCard
+          <PackCard 
             src={"/pack-sample.webp"}
             description={[
               `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
@@ -62,6 +63,7 @@ const Home: NextPage<IPageProps> = ({
             ]}
           />
         </div>
+        <Footer />
       </div>
     </>
   );

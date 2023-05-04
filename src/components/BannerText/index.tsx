@@ -33,6 +33,7 @@ const BannerText: React.FC<Props> = ({ displayText, top }) => {
           &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`}
           &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`}
           &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`} 
+          &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`}
         </div>
       </div>
     </>
