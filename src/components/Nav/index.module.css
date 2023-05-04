@@ -1,5 +1,4 @@
-.container {
-  position: fixed;
+.container { 
   width: 100%;
   height: 80px;
   background: linear-gradient(175deg, #111111 50%, #363638 100%);

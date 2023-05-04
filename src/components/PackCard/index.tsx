@@ -1,17 +1,30 @@
-import { CSSProperties } from "react";
+import { CSSProperties, LegacyRef, useEffect, useRef } from "react";
 import styles from "./index.module.css";
 
 interface Props {
   src: string;
   description: string[];
+  mouseMoved: boolean;
   style?: CSSProperties;
 }
 
-const PackCard: React.FC<Props> = ({ src, description, style }) => {
+const PackCard: React.FC<Props> = ({ src, description, style, mouseMoved }) => {
+  const packRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (packRef.current) {
+      if (!mouseMoved) {
+        packRef.current.classList.add(styles.syntheticHover);
+      } else {
+        packRef.current.classList.remove(styles.syntheticHover);
+      }
+    }
+  }, [mouseMoved, packRef.current]);
+
   return (
     <>
       <div className={styles.packContainer} style={style}>
-        <img className={styles.pack} src={src} />
+        <img className={styles.pack} src={src} ref={packRef} />
         <div className={styles.buyButton}>
           <div className={styles.buyText}>{`Mint`}</div>
         </div>

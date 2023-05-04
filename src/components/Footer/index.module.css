@@ -1,11 +1,11 @@
 .container {
-  position: relative;
-  top: calc(100% - 130px);
-
+  position: relative; 
+  bottom: 0px;
+  
   height: 80px;
   width: 100%;
-  border-top: 1px solid #fff; 
-  
+  border-top: 1px solid #fff;
+
   background: linear-gradient(355deg, #111111 50%, #363638 100%);
 }
 
