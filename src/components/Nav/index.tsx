@@ -53,9 +53,6 @@ const Nav: React.FC<Props> = ({
                     active ? styles.activeButton : styles.hamburgerButton
                   }
                   aria-pressed={active}
-                  onClick={() => {
-                    setActive((p) => !p);
-                  }}
                 ></div>
               </div>
             </>

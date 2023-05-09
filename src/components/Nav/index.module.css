@@ -138,7 +138,7 @@
   content: "";
   position: absolute;
   transition: top ease-in-out 0.2s 0.2s, transform ease-in-out 0.2s;
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) translateY(11px) translateX(-3px);
   background-color: #ffffff;
 }
 
@@ -148,7 +148,7 @@
   height: 2px;
   content: "";
   position: absolute;
-  transform: rotate(45deg);
+  transform: rotate(45deg) translateY(-11px) translateX(-3px);
   transition: top ease-in-out 0.2s 0.2s, transform ease-in-out 0.2s;
   background-color: #ffffff;
 }
@@ -156,6 +156,7 @@
 .buttonContainer {
   display: flex;
   cursor: pointer;
+  align-items: center;
 }
 
 .buttonContainer:hover {
