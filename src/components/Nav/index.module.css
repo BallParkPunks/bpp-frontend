@@ -1,4 +1,4 @@
-.container { 
+.container {
   width: 100%;
   height: 80px;
   background: linear-gradient(175deg, #111111 50%, #363638 100%);
@@ -73,4 +73,91 @@
 .navItem:hover {
   background-position: 100% 100%;
   background-size: 100% 1px;
+}
+
+.hamburgerIcon {
+  transition-delay: 0.2s;
+  position: relative;
+  display: block;
+  width: 32;
+  height: 2;
+  margin-top: 16;
+  margin-bottom: 16;
+  background-color: #fff;
+}
+
+.hamburgerButton {
+  position: relative;
+  width: 32px;
+  height: 2px;
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  transition-delay: 0.2s;
+  cursor: pointer;
+}
+
+.hamburgerButton::after {
+  transition: top ease-in-out 0.2s 0.2s, transform ease-in-out 0.2s;
+  content: "";
+  background-color: #fff;
+  top: 10px;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  transform: rotate(0deg);
+}
+
+.hamburgerButton::before {
+  transition: top ease-in-out 0.2s 0.2s, transform ease-in-out 0.2s;
+  content: "";
+  background-color: #fff;
+  top: -10px;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+}
+
+.activeButton {
+  position: relative;
+  width: 32px;
+  height: 2px;
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: transparent;
+  transition-delay: 0.2s;
+  cursor: pointer;
+}
+
+.activeButton::before {
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  content: "";
+  position: absolute;
+  transition: top ease-in-out 0.2s 0.2s, transform ease-in-out 0.2s;
+  transform: rotate(-45deg);
+  background-color: #ffffff;
+}
+
+.activeButton::after {
+  top: 10px;
+  width: 100%;
+  height: 2px;
+  content: "";
+  position: absolute;
+  transform: rotate(45deg);
+  transition: top ease-in-out 0.2s 0.2s, transform ease-in-out 0.2s;
+  background-color: #ffffff;
+}
+
+.buttonContainer {
+  display: flex;
+  cursor: pointer;
+}
+
+.buttonContainer:hover {
+  filter: brightness(60%);
 }

@@ -91,8 +91,8 @@ const Home: NextPage<IPageProps> = ({
             />
           </div>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };

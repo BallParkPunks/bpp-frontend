@@ -1,4 +1,6 @@
+import useWindow from "@/src/hooks/useWindow";
 import styles from "./index.module.css";
+import { useEffect, useState } from "react";
 
 interface Props {
   connectedAddress?: string;
@@ -11,73 +13,122 @@ const Nav: React.FC<Props> = ({
   connectWallet,
   disconnect,
 }) => {
+  const { windowWidth } = useWindow();
+
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [active, setActive] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (windowWidth < 660) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, [windowWidth]);
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <div className={styles.navContainer}>
-            <img
-              className={styles.navLogo}
-              src={"/placeholder.png"}
-              alt="nav-logo"
-              onClick={() =>
-                window.open(`https://www.ballparkpunks.com/`, `_self`)
-              }
-            />
-            <div
-              className={styles.navItem}
-              onClick={() =>
-                window.open(`https://www.ballparkpunks.com/`, `_self`)
-              }
-            >
-              {`HOME`}
-            </div>
-            <div
-              className={styles.navItem}
-              onClick={() => {
-                connectedAddress ? disconnect() : connectWallet();
-              }}
-            >
-              {connectedAddress !== undefined
-                ? `${connectedAddress.slice(0, 4)}...${connectedAddress.slice(
-                    connectedAddress.length - 4,
-                    connectedAddress.length
-                  )}`
-                : `CONNECT WALLET`}
-            </div>
-          </div>
-          <div className={styles.socialsContainer}>
-            <img
-              src={`/socials/instagram.svg`}
-              alt="instagram"
-              className={styles.socialsIcon}
-              onClick={() =>
-                window.open(
-                  `https://www.instagram.com/ballparkpunks/`,
-                  `_blank`
-                )
-              }
-            />
-            <img
-              src={`/socials/twitter.svg`}
-              alt="twitter"
-              className={styles.socialsIcon}
-              onClick={() =>
-                window.open(`https://twitter.com/BallParkPunks`, `_blank`)
-              }
-            />
-            <img
-              src={`/socials/discord.svg`}
-              alt="discord"
-              className={styles.socialsIcon}
-              onClick={() =>
-                window.open(
-                  `https://discord.com/invite/ballparkpunks`,
-                  `_blank`
-                )
-              }
-            />
-          </div>
+          {isMobile ? (
+            <>
+              <div className={styles.navContainer}>
+                <img
+                  className={styles.navLogo}
+                  src={"/placeholder.png"}
+                  alt="nav-logo"
+                  onClick={() =>
+                    window.open(`https://www.ballparkpunks.com/`, `_self`)
+                  }
+                />
+              </div>
+              <div
+                className={styles.buttonContainer}
+                onClick={() => {
+                  setActive((p) => !p);
+                }}
+              >
+                <div
+                  className={
+                    active ? styles.activeButton : styles.hamburgerButton
+                  }
+                  aria-pressed={active}
+                  onClick={() => {
+                    setActive((p) => !p);
+                  }}
+                ></div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.navContainer}>
+                <img
+                  className={styles.navLogo}
+                  src={"/placeholder.png"}
+                  alt="nav-logo"
+                  onClick={() =>
+                    window.open(`https://www.ballparkpunks.com/`, `_self`)
+                  }
+                />
+                <div
+                  className={styles.navItem}
+                  onClick={() =>
+                    window.open(`https://www.ballparkpunks.com/`, `_self`)
+                  }
+                >
+                  {`HOME`}
+                </div>
+                <div
+                  className={styles.navItem}
+                  onClick={() => {
+                    connectedAddress ? disconnect() : connectWallet();
+                  }}
+                >
+                  {connectedAddress !== undefined
+                    ? `${connectedAddress.slice(
+                        0,
+                        4
+                      )}...${connectedAddress.slice(
+                        connectedAddress.length - 4,
+                        connectedAddress.length
+                      )}`
+                    : `CONNECT WALLET`}
+                </div>
+              </div>
+              <div className={styles.socialsContainer}>
+                <img
+                  src={`/socials/instagram.svg`}
+                  alt="instagram"
+                  className={styles.socialsIcon}
+                  onClick={() =>
+                    window.open(
+                      `https://www.instagram.com/ballparkpunks/`,
+                      `_blank`
+                    )
+                  }
+                />
+                <img
+                  src={`/socials/twitter.svg`}
+                  alt="twitter"
+                  className={styles.socialsIcon}
+                  onClick={() =>
+                    window.open(`https://twitter.com/BallParkPunks`, `_blank`)
+                  }
+                />
+                <img
+                  src={`/socials/discord.svg`}
+                  alt="discord"
+                  className={styles.socialsIcon}
+                  onClick={() =>
+                    window.open(
+                      `https://discord.com/invite/ballparkpunks`,
+                      `_blank`
+                    )
+                  }
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>
