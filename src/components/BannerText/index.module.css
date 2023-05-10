@@ -18,6 +18,7 @@
   align-items: center;
   flex-wrap: nowrap;
   border-bottom: 1px solid #fff;
+  z-index: 0;
 }
 
 .bannerText {

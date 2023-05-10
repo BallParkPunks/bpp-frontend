@@ -19,6 +19,8 @@ const Home: NextPage<IPageProps> = ({
   const [firstPos, setFirstPos] = useState<number[] | undefined>(undefined);
   const [mouseMoved, setMouseMoved] = useState<boolean>(false);
 
+  const [mobileNavActive, setMobileNavActive] = useState<boolean>(false);
+
   useEffect(() => {
     if (mouseMoved) {
       return;
@@ -41,11 +43,16 @@ const Home: NextPage<IPageProps> = ({
         <meta name="description" content="Home Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        style={mobileNavActive ? { overflow: "hidden" } : {}}
+      >
         <Nav
           connectedAddress={connectedAddress}
           connectWallet={connectWallet}
           disconnect={disconnect}
+          setActive={setMobileNavActive}
+          active={mobileNavActive}
         />
         <BannerText displayText={"Lorem ipsum dolor sit amet"} />
         <div className={styles.bodyContainer}>

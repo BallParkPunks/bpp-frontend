@@ -6,6 +6,7 @@
   scroll-behavior: smooth;
 
   background: #363638;
+  z-index: 1;
 }
 
 .bodyContainer {
@@ -23,7 +24,26 @@
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
   scroll-padding-inline: 80px;
-  padding: 60px 60px 60px;
+  padding: 45px 45px 45px;
+}
+
+.packContainer::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.packContainer::-webkit-scrollbar-thumb {
+  background-color: #1f1f21;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+
+.packContainer::-webkit-scrollbar-track {
+  /* cursor: pointer; */
+}
+
+.packContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #e22120;
 }
 
 .packContainer > * {
@@ -32,6 +52,17 @@
 
 @media only screen and (min-width: 600px) {
   .packContainer {
+    mask: linear-gradient(
+        to right,
+        transparent 5%,
+        #fff 10% 95%,
+        transparent 100%
+      ),
+      linear-gradient(to left, transparent 5%, #fff 10% 95%, transparent 100%);
+    mask-size: 110% 110%;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-composite: source-in;
     -webkit-mask: linear-gradient(
         to right,
         transparent 5%,

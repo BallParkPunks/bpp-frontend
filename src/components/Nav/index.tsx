@@ -1,22 +1,25 @@
 import useWindow from "@/src/hooks/useWindow";
 import styles from "./index.module.css";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface Props {
   connectedAddress?: string;
   connectWallet: () => Promise<void>;
   disconnect: () => Promise<void>;
+  active: boolean;
+  setActive: Dispatch<SetStateAction<boolean>>;
 }
 
 const Nav: React.FC<Props> = ({
   connectedAddress,
   connectWallet,
   disconnect,
+  active,
+  setActive,
 }) => {
   const { windowWidth } = useWindow();
 
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [active, setActive] = useState<boolean>(false);
 
   useEffect(() => {
     if (windowWidth < 660) {
@@ -51,6 +54,39 @@ const Nav: React.FC<Props> = ({
                     connectedAddress.length
                   )}`
                 : `CONNECT WALLET`}
+            </div>
+
+            <div className={styles.socialsContainerMobile}>
+              <img
+                src={`/socials/instagram.svg`}
+                alt="instagram"
+                className={styles.socialsIcon}
+                onClick={() =>
+                  window.open(
+                    `https://www.instagram.com/ballparkpunks/`,
+                    `_blank`
+                  )
+                }
+              />
+              <img
+                src={`/socials/twitter.svg`}
+                alt="twitter"
+                className={styles.socialsIcon}
+                onClick={() =>
+                  window.open(`https://twitter.com/BallParkPunks`, `_blank`)
+                }
+              />
+              <img
+                src={`/socials/discord.svg`}
+                alt="discord"
+                className={styles.socialsIcon}
+                onClick={() =>
+                  window.open(
+                    `https://discord.com/invite/ballparkpunks`,
+                    `_blank`
+                  )
+                }
+              />
             </div>
           </div>
         </div>
@@ -119,6 +155,7 @@ const Nav: React.FC<Props> = ({
                     : `CONNECT WALLET`}
                 </div>
               </div>
+
               <div className={styles.socialsContainer}>
                 <img
                   src={`/socials/instagram.svg`}
