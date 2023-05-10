@@ -8,7 +8,13 @@
   background-color: #1f1f21;
   border: 1px solid #fff;
 
+  margin-bottom: 50px;
+
   transition-duration: 0.25s;
+}
+
+.packContainer:first-child {
+  margin-left: 80px;
 }
 
 .packContainer:hover {
@@ -31,7 +37,7 @@
   border: 1px solid #e22120;
 }
 
-.syntheticHover { 
+.syntheticHover {
   transform: translateY(-75px);
 }
 
@@ -85,18 +91,18 @@
   text-indent: 20px;
 }
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-height: 600px) {
   .pack {
     width: 300px;
     height: 300px;
-    margin-top: -10px;
+    margin-top: -15px;
   }
 
   .packContainer {
     margin-top: 15px;
     width: 340px;
     min-width: 340px;
-    height: 408px;
+    height: 400px;
   }
 
   .packDescription {
@@ -109,7 +115,7 @@
   }
 }
 
-@media only screen and (max-height: 600px) {
+@media only screen and (max-width: 660px) {
   .pack {
     width: 300px;
     height: 300px;
@@ -120,7 +126,7 @@
     margin-top: 15px;
     width: 340px;
     min-width: 340px;
-    height: 408px;
+    height: 400px;
   }
 
   .packDescription {
@@ -130,5 +136,33 @@
 
   .indent {
     margin-top: 5px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .packContainer {
+    margin-top: 15px;
+    width: 240px;
+    min-width: 240px;
+    height: 425px;
+  }
+  .packDescription {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .packContainer:first-child {
+    margin-left: 40px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .packContainer:first-child {
+    margin-left: 60px;
+  }
+
+  .pack {
+    margin-top: -20px;
   }
 }

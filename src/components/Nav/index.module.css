@@ -157,8 +157,62 @@
   display: flex;
   cursor: pointer;
   align-items: center;
+  z-index: 11;
 }
 
 .buttonContainer:hover {
   filter: brightness(60%);
+}
+
+.mobileNavFrame {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+}
+
+.mobileNavContainer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(175deg, #111111 50%, #363638 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileNavPadding {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid#363638;
+}
+
+.mobileNavItem {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+  font-family: "Anton", sans-serif;
+  color: #fff;
+  letter-spacing: 0.7px;
+  font-size: 18px;
+  padding-top: 2px;
+
+  padding-bottom: 1px;
+  background-image: linear-gradient(#fff 0 0);
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s, background-position 0s 0.3s;
+
+  cursor: pointer;
+
+  border-bottom: 1px solid#363638;
+}
+
+.mobileNavItem:hover {
+  background-position: 100% 100%;
+  background-size: 100% 1px;
 }

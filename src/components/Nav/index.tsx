@@ -23,11 +23,38 @@ const Nav: React.FC<Props> = ({
       setIsMobile(true);
     } else {
       setIsMobile(false);
+      setActive(false);
     }
   }, [windowWidth]);
 
   return (
     <>
+      {active && (
+        <div className={styles.mobileNavFrame}>
+          <div className={styles.mobileNavContainer}>
+            <div className={styles.mobileNavPadding} />
+            <div
+              className={styles.mobileNavItem}
+              onClick={() =>
+                window.open(`https://www.ballparkpunks.com/`, `_self`)
+              }
+            >{`HOME`}</div>
+            <div
+              className={styles.mobileNavItem}
+              onClick={() => {
+                connectedAddress ? disconnect() : connectWallet();
+              }}
+            >
+              {connectedAddress !== undefined
+                ? `${connectedAddress.slice(0, 4)}...${connectedAddress.slice(
+                    connectedAddress.length - 4,
+                    connectedAddress.length
+                  )}`
+                : `CONNECT WALLET`}
+            </div>
+          </div>
+        </div>
+      )}
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           {isMobile ? (

@@ -1,5 +1,5 @@
 .container {
-  position: relative;
+  position: sticky;
   bottom: 0px;
 
   height: 80px;

@@ -6,17 +6,6 @@ interface Props {
 }
 
 const BannerText: React.FC<Props> = ({ displayText, top }) => {
-  const multiplyText = (displayText: string) => {
-    let buf = [];
-    for (let i = 0; i < 10; i++) {
-      buf.push(
-        <div key={`multiplyText-${i}`}>
-          {`${displayText}`}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
-      );
-    }
-    return buf;
-  };
   return (
     <>
       <div className={styles.container} style={{ top: top }}>
@@ -32,7 +21,7 @@ const BannerText: React.FC<Props> = ({ displayText, top }) => {
           &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`}
           &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`}
           &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`}
-          &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`} 
+          &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`}
           &nbsp;&nbsp;&nbsp;&nbsp;{`${displayText}`}
         </div>
       </div>

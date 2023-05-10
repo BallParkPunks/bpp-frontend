@@ -1,7 +1,7 @@
 .container {
   position: relative;
   width: 100%;
-  height: calc(100% - 80px);
+  height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
 
@@ -11,7 +11,6 @@
 .bodyContainer {
   display: flex;
   flex-direction: column;
-  margin: 80px 80px 80px;
 }
 
 .packContainer {
@@ -24,7 +23,7 @@
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
   scroll-padding-inline: 80px;
-  padding-top: 40px;
+  padding: 60px 60px 60px;
 }
 
 .packContainer > * {
@@ -48,7 +47,13 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .bodyContainer {
-    margin: 40px 40px 40px;
+  .packContainer {
+    padding: 60px 60px 60px;
   }
 }
+
+/* @media only screen and (max-width: 400px) {
+  .packContainer {
+    padding: 20px 20px 20px;
+  }
+} */
