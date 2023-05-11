@@ -1,14 +1,21 @@
-import { CSSProperties, LegacyRef, useEffect, useRef } from "react";
+import { CSSProperties, RefObject, useEffect, useRef } from "react";
 import styles from "./index.module.css";
 
 interface Props {
   src: string;
   description: string[];
   mouseMoved: boolean;
+  containerRef?: RefObject<HTMLDivElement>;
   style?: CSSProperties;
 }
 
-const PackCard: React.FC<Props> = ({ src, description, style, mouseMoved }) => {
+const PackCard: React.FC<Props> = ({
+  src,
+  description,
+  containerRef,
+  style,
+  mouseMoved,
+}) => {
   const packRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -23,7 +30,7 @@ const PackCard: React.FC<Props> = ({ src, description, style, mouseMoved }) => {
 
   return (
     <>
-      <div className={styles.packContainer} style={style}>
+      <div className={styles.packContainer} style={style} ref={containerRef}>
         <img className={styles.pack} src={src} ref={packRef} />
         <div className={styles.buyButton}>
           <div className={styles.buyText}>{`Mint`}</div>
