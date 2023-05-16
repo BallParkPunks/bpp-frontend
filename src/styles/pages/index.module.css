@@ -26,6 +26,12 @@
   padding: 45px 45px 45px;
 }
 
+.containerPlaceholder {
+  width: 600px;
+  min-width: 600px;
+  height: 600px;
+}
+
 /* .packContainer::-webkit-scrollbar {
   width: 10px;
   height: 10px;
