@@ -1,0 +1,19 @@
+.container {
+  position: fixed;
+  z-index: 999999999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 1180px) {
+  .modalContainer {
+    max-height: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .modalContainer {
+    max-height: 85%;
+  }
+}

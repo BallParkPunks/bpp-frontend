@@ -9,6 +9,7 @@ import Footer from "@/src/components/Footer";
 import useCursor from "@/src/hooks/useCursor";
 import { RefObject, useEffect, useRef, useState } from "react";
 import useWindow from "@/src/hooks/useWindow";
+import useMouseWheel from "@/src/hooks/useMouseWheel";
 
 const PACK_GAP = 100;
 const PACKS_IN_CAROUSEL = 7;
@@ -20,6 +21,7 @@ const Home: NextPage<IPageProps> = ({
 }) => {
   const { mouseX, mouseY } = useCursor();
   const { windowWidth } = useWindow();
+  const { setDisabled } = useMouseWheel(); // TODO: This does nothing at the moment
 
   const [firstPos, setFirstPos] = useState<number[] | undefined>(undefined);
   const [mouseMoved, setMouseMoved] = useState<boolean>(false);
@@ -27,6 +29,8 @@ const Home: NextPage<IPageProps> = ({
   const [mobileNavActive, setMobileNavActive] = useState<boolean>(false);
   const [scrollCounter, setScrollCounter] = useState<number>(0);
   const [scrollIndex, setScrollIndex] = useState<number>(0);
+  const [scrollLock, setScrollLock] = useState<boolean>(false);
+  const [lockTime, setLockTime] = useState<number>(0);
 
   useEffect(() => {
     if (mouseMoved) {
@@ -47,6 +51,14 @@ const Home: NextPage<IPageProps> = ({
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (scrollLock) {
+      if (Date.now() - lockTime >= 1250) {
+        setScrollLock(false);
+        setDisabled(false);
+      }
+      return;
+    }
+
     if (firstPackRef && firstPackRef.current) {
       const leftOfFirst = firstPackRef.current.getBoundingClientRect().x;
 
@@ -75,10 +87,15 @@ const Home: NextPage<IPageProps> = ({
       scrollRef &&
       scrollRef.current
     ) {
+      setScrollLock(true);
+      setDisabled(true);
+      setLockTime(Date.now());
       setScrollIndex(index);
       const width = firstPackRef.current.getBoundingClientRect().width;
 
-      scrollRef.current.scrollTo({ left: (width + PACK_GAP) * index });
+      const targetScrollLeft = (width + PACK_GAP) * index;
+
+      scrollRef.current.scrollTo({ left: targetScrollLeft });
     }
   };
 
@@ -108,7 +125,6 @@ const Home: NextPage<IPageProps> = ({
             style={{ gap: PACK_GAP }}
             ref={scrollRef}
           >
-            {/* <div className={styles.containerPlaceholder} /> */}
             <PackCard
               containerRef={firstPackRef}
               src={"/pack-sample.webp"}

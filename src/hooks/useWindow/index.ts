@@ -1,6 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 const useWindow = () => {
-  const [windowCtx, setWindowCtx] = useState({ width: 0, height: 0, y: 0 });
+  const [windowCtx, setWindowCtx] = useState({
+    width: 0,
+    height: 0,
+    y: 0,
+  });
 
   useEffect(() => {
     setWindowCtx({
@@ -18,11 +22,11 @@ const useWindow = () => {
         y: window.scrollY,
       });
     };
-    window.addEventListener('resize', () => update());
-    window.addEventListener('scroll', () => update());
+    window.addEventListener("resize", () => update());
+    window.addEventListener("scroll", () => update());
     return () => {
-      window.removeEventListener('resize', () => update());
-      window.removeEventListener('scroll', () => update());
+      window.removeEventListener("resize", () => update());
+      window.removeEventListener("scroll", () => update());
     };
   }, []);
 
