@@ -44,14 +44,13 @@ const Home: NextPage<IPageProps> = ({
   }, [mouseX, mouseY]);
 
   const firstPackRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (firstPackRef && firstPackRef.current) {
       const leftOfFirst = firstPackRef.current.getBoundingClientRect().x;
 
       const width = firstPackRef.current.getBoundingClientRect().width;
-
-      const packsOnScreen = windowWidth / (width + PACK_GAP);
 
       if (leftOfFirst > 0) {
         setScrollIndex(0);
@@ -67,14 +66,19 @@ const Home: NextPage<IPageProps> = ({
 
   const simulateScroll = (
     index: number,
-    firstPackRef: RefObject<HTMLDivElement>
+    firstPackRef: RefObject<HTMLDivElement>,
+    scrollRef: RefObject<HTMLDivElement>
   ) => {
-    if (firstPackRef && firstPackRef.current) {
+    if (
+      firstPackRef &&
+      firstPackRef.current &&
+      scrollRef &&
+      scrollRef.current
+    ) {
       setScrollIndex(index);
       const width = firstPackRef.current.getBoundingClientRect().width;
-      const leftOfFirst = index * (width + PACK_GAP / 2) * -1;
 
-      firstPackRef.current.scrollTo({ left: leftOfFirst });
+      scrollRef.current.scrollTo({ left: (width + PACK_GAP) * index });
     }
   };
 
@@ -102,6 +106,7 @@ const Home: NextPage<IPageProps> = ({
             className={styles.packContainer}
             onScroll={() => setScrollCounter((p) => p + 1)}
             style={{ gap: PACK_GAP }}
+            ref={scrollRef}
           >
             {/* <div className={styles.containerPlaceholder} /> */}
             <PackCard
@@ -167,49 +172,49 @@ const Home: NextPage<IPageProps> = ({
               className={styles.progressButton}
               style={scrollIndex === 0 ? { backgroundColor: "red" } : {}}
               onClick={() => {
-                simulateScroll(0, firstPackRef);
+                simulateScroll(0, firstPackRef, scrollRef);
               }}
             />
             <div
               className={styles.progressButton}
               style={scrollIndex === 1 ? { backgroundColor: "red" } : {}}
               onClick={() => {
-                simulateScroll(1, firstPackRef);
+                simulateScroll(1, firstPackRef, scrollRef);
               }}
             />
             <div
               className={styles.progressButton}
               style={scrollIndex === 2 ? { backgroundColor: "red" } : {}}
               onClick={() => {
-                simulateScroll(2, firstPackRef);
+                simulateScroll(2, firstPackRef, scrollRef);
               }}
             />
             <div
               className={styles.progressButton}
               style={scrollIndex === 3 ? { backgroundColor: "red" } : {}}
               onClick={() => {
-                simulateScroll(3, firstPackRef);
+                simulateScroll(3, firstPackRef, scrollRef);
               }}
             />
             <div
               className={styles.progressButton}
               style={scrollIndex === 4 ? { backgroundColor: "red" } : {}}
               onClick={() => {
-                simulateScroll(4, firstPackRef);
+                simulateScroll(4, firstPackRef, scrollRef);
               }}
             />
             <div
               className={styles.progressButton}
               style={scrollIndex === 5 ? { backgroundColor: "red" } : {}}
               onClick={() => {
-                simulateScroll(5, firstPackRef);
+                simulateScroll(5, firstPackRef, scrollRef);
               }}
             />
             <div
               className={styles.progressButton}
               style={scrollIndex === 6 ? { backgroundColor: "red" } : {}}
               onClick={() => {
-                simulateScroll(6, firstPackRef);
+                simulateScroll(6, firstPackRef, scrollRef);
               }}
             />
           </div>
