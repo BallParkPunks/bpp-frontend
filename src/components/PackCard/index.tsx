@@ -6,6 +6,9 @@ interface Props {
   description: string[];
   mouseMoved: boolean;
   containerRef?: RefObject<HTMLDivElement>;
+  packType: number;
+  setPackType: React.Dispatch<React.SetStateAction<number>>;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   style?: CSSProperties;
 }
 
@@ -14,7 +17,10 @@ const PackCard: React.FC<Props> = ({
   description,
   containerRef,
   style,
+  packType,
+  setPackType,
   mouseMoved,
+  setModalOpen,
 }) => {
   const packRef = useRef<HTMLImageElement>(null);
 
@@ -32,7 +38,13 @@ const PackCard: React.FC<Props> = ({
     <>
       <div className={styles.packContainer} style={style} ref={containerRef}>
         <img className={styles.pack} src={src} ref={packRef} />
-        <div className={styles.buyButton}>
+        <div
+          className={styles.buyButton}
+          onClick={() => {
+            setPackType(packType);
+            setModalOpen(true);
+          }}
+        >
           <div className={styles.buyText}>{`Mint`}</div>
         </div>
         <div className={styles.packDescription}>

@@ -4,6 +4,42 @@
   width: 100vw;
   height: 100vh;
   background-color: rgb(0, 0, 0, 0.3);
+  top: 0px;
+}
+
+.modalFrame {
+  position: relative;
+  z-index: 9999999999;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.modalContainer {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 516.91px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  background-color: #1f1f21 !important;
+  border: 1px solid #fff !important;
+  padding: 10px;
+
+  border-radius: 20px;
+}
+
+.modalContainer:hover {
+  border-color: #e22120 !important;
 }
 
 @media only screen and (max-width: 1180px) {

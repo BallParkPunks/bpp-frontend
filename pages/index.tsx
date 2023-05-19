@@ -10,6 +10,7 @@ import useCursor from "@/src/hooks/useCursor";
 import { RefObject, useEffect, useRef, useState } from "react";
 import useWindow from "@/src/hooks/useWindow";
 import useMouseWheel from "@/src/hooks/useMouseWheel";
+import MintModal from "@/src/components/MintModal";
 
 const PACK_GAP = 100;
 const PACKS_IN_CAROUSEL = 7;
@@ -31,6 +32,8 @@ const Home: NextPage<IPageProps> = ({
   const [scrollIndex, setScrollIndex] = useState<number>(0);
   const [scrollLock, setScrollLock] = useState<boolean>(false);
   const [lockTime, setLockTime] = useState<number>(0);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [packType, setPackType] = useState<number>(0);
 
   useEffect(() => {
     if (mouseMoved) {
@@ -118,6 +121,11 @@ const Home: NextPage<IPageProps> = ({
           active={mobileNavActive}
         />
         <BannerText displayText={"Lorem ipsum dolor sit amet"} />
+        <MintModal
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
+          type={packType}
+        />
         <div className={styles.bodyContainer}>
           <div
             className={styles.packContainer}
@@ -133,6 +141,9 @@ const Home: NextPage<IPageProps> = ({
                 `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
               ]}
               mouseMoved={mouseMoved}
+              packType={0}
+              setPackType={setPackType}
+              setModalOpen={setModalOpen}
             />
             <PackCard
               src={"/pack-sample.webp"}
@@ -141,6 +152,9 @@ const Home: NextPage<IPageProps> = ({
                 `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
               ]}
               mouseMoved={mouseMoved}
+              packType={1}
+              setPackType={setPackType}
+              setModalOpen={setModalOpen}
             />
             <PackCard
               src={"/pack-sample.webp"}
@@ -149,6 +163,9 @@ const Home: NextPage<IPageProps> = ({
                 `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
               ]}
               mouseMoved={mouseMoved}
+              packType={2}
+              setPackType={setPackType}
+              setModalOpen={setModalOpen}
             />
             <PackCard
               src={"/pack-sample.webp"}
@@ -156,6 +173,9 @@ const Home: NextPage<IPageProps> = ({
                 `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
               ]}
               mouseMoved={mouseMoved}
+              packType={3}
+              setPackType={setPackType}
+              setModalOpen={setModalOpen}
             />
             <PackCard
               src={"/pack-sample.webp"}
@@ -164,6 +184,9 @@ const Home: NextPage<IPageProps> = ({
                 `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
               ]}
               mouseMoved={mouseMoved}
+              packType={4}
+              setPackType={setPackType}
+              setModalOpen={setModalOpen}
             />
             <PackCard
               src={"/pack-sample.webp"}
@@ -172,6 +195,9 @@ const Home: NextPage<IPageProps> = ({
                 `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
               ]}
               mouseMoved={mouseMoved}
+              packType={5}
+              setPackType={setPackType}
+              setModalOpen={setModalOpen}
             />
             <PackCard
               src={"/pack-sample.webp"}
@@ -180,6 +206,9 @@ const Home: NextPage<IPageProps> = ({
                 `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
               ]}
               mouseMoved={mouseMoved}
+              packType={6}
+              setPackType={setPackType}
+              setModalOpen={setModalOpen}
             />
             <div className={styles.containerPlaceholder} />
           </div>
