@@ -29,6 +29,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 
   background-color: #1f1f21 !important;
@@ -36,6 +37,138 @@
   padding: 10px;
 
   border-radius: 20px;
+}
+
+.submitButtonSmall {
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: rgb(0, 0, 0, 0.3);
+  width: 170px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10px;
+
+  font-family: "Audiowide";
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.submitButton {
+  width: 261px;
+  height: 69px;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: rgb(0, 0, 0, 0.3);
+
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: "Audiowide";
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.submitButtonSmall:hover {
+  border-color: #e22120;
+  color: #e22120;
+}
+
+.submitButton:hover {
+  border-color: #e22120;
+  color: #e22120;
+}
+
+.amountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.up {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  width: 32.5px;
+  height: 32.5px;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0, 0.3);
+  border: 1px solid #fff;
+
+  color: #fff;
+  font-style: bold;
+  font-size: 20px;
+  font-family: "Audiowide";
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.down {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  width: 32.5px;
+  height: 32.5px;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0, 0.3);
+  border: 1px solid #fff;
+
+  color: #fff;
+  font-style: bold;
+  font-size: 20px;
+  font-family: "Audiowide";
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.amountInput {
+  outline: none;
+  background-color: rgb(0, 0, 0, 0.3);
+  border: 1px solid #fff;
+  border-radius: 5px;
+
+  text-align: center;
+  font-size: 20px;
+  font-family: "Audiowide";
+
+  color: #fff;
+
+  width: 50px;
+  height: 50px;
+}
+
+.up:hover {
+  color: #e22120;
+  border-color: #e22120;
+}
+
+.down:hover {
+  color: #e22120;
+  border-color: #e22120;
+}
+
+.amountInput[type="number"] {
+  -moz-appearance: textfield;
+}
+.amountInput::-webkit-outer-spin-button,
+.amountInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .modalContainer:hover {
@@ -53,3 +186,5 @@
     max-height: 85%;
   }
 }
+
+

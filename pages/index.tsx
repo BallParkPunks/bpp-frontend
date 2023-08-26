@@ -11,11 +11,13 @@ import { RefObject, useEffect, useRef, useState } from "react";
 import useWindow from "@/src/hooks/useWindow";
 import useMouseWheel from "@/src/hooks/useMouseWheel";
 import MintModal from "@/src/components/MintModal";
+import { Contract } from "web3-eth-contract";
 
 const PACK_GAP = 100;
 const PACKS_IN_CAROUSEL = 7;
 
 const Home: NextPage<IPageProps> = ({
+  contract,
   connectedAddress,
   connectWallet,
   disconnect,
@@ -102,6 +104,7 @@ const Home: NextPage<IPageProps> = ({
     }
   };
 
+
   return (
     <>
       <Head>
@@ -124,7 +127,9 @@ const Home: NextPage<IPageProps> = ({
         <MintModal
           modalOpen={modalOpen}
           setModalOpen={setModalOpen}
-          type={packType}
+          packType={packType}
+          connectedAddress={connectedAddress}
+          contract={contract}
         />
         <div className={styles.bodyContainer}>
           <div

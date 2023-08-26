@@ -42,7 +42,7 @@ const useConnectWeb3Modal = (web3Modal?: Web3Modal) => {
   useEffect(() => {
     // Automatically connect wallet if user is already connected
 
-    if (web3Modal && web3Modal.cachedProvider) { 
+    if (web3Modal && web3Modal.cachedProvider) {
       connectWallet();
     }
   }, [web3Modal]);
@@ -68,7 +68,7 @@ const useConnectWeb3Modal = (web3Modal?: Web3Modal) => {
     ) => {
       const contractObj = new web3Provider.eth.Contract(
         abi as AbiItem[],
-        CONTRACT_ADDRESS
+        contractAddress
       );
       setContract(contractObj as any);
     };
@@ -89,11 +89,10 @@ const useConnectWeb3Modal = (web3Modal?: Web3Modal) => {
           // console.log('User Closed Modal');
           return;
         } else {
-          console.log(`useWeb3Modal hook provider error: ${error.toString()}`); 
           throw new Error(error.toString());
         }
       });
-      if (provider) { 
+      if (provider) {
         if (!isListening) {
           addListeners(provider);
         }
@@ -105,7 +104,6 @@ const useConnectWeb3Modal = (web3Modal?: Web3Modal) => {
             const desiredChain = process.env.CHAIN_ID || -1;
             if (chainId != desiredChain) {
               if (desiredChain === -1) {
-                console.log(`CHAIN_ID environment variable undefined`); 
                 continue;
               }
               const r = await changeNetwork(web3);
