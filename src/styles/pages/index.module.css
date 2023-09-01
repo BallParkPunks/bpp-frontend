@@ -14,7 +14,7 @@
   flex-direction: column;
 }
 
-.packContainer {
+/* .packContainer {
   display: grid;
   grid-auto-flow: column;
 
@@ -24,6 +24,18 @@
   scroll-snap-type: inline mandatory;
   scroll-padding-inline: 80px;
   padding: 45px 45px 45px;
+} */
+
+.packContainer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  scroll-padding-inline: 80px;
+  padding: 45px 45px 45px;
+  
+  gap: 40px;
 }
 
 .containerPlaceholder {
@@ -117,4 +129,13 @@
   padding-top: 20px;
   padding-left: 20px;
   
+}
+
+.svgArrow {
+  cursor: pointer;
+}
+
+.svgArrow:hover {
+  fill: #e22120;
+  stroke: #e22120;
 }

@@ -1,4 +1,4 @@
-FROM node:14-alpine as react-builder
+FROM node:16-alpine as react-builder
 
 ENV NODE_ENV production
 
