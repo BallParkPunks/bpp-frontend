@@ -13,9 +13,9 @@
   transition-duration: 0.25s;
 }
 
-.packContainer:first-child {
+/* .packContainer:first-child {
   margin-left: 80px;
-}
+} */
 
 .packContainer:hover {
   border: 1px solid #e22120;
@@ -152,15 +152,15 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .packContainer:first-child {
+  /* .packContainer:first-child {
     margin-left: 40px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 400px) {
-  .packContainer:first-child {
+  /* .packContainer:first-child {
     margin-left: 60px;
-  }
+  } */
 
   .pack {
     margin-top: -20px;
