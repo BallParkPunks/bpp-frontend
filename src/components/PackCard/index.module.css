@@ -115,7 +115,7 @@
   }
 }
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 760px) {
   .pack {
     width: 300px;
     height: 300px;
@@ -139,7 +139,7 @@
   }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 600px) {
   .packContainer {
     margin-top: 15px;
     width: 240px;
@@ -151,16 +151,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  /* .packContainer:first-child {
-    margin-left: 40px;
-  } */
-}
-
 @media only screen and (max-width: 400px) {
-  /* .packContainer:first-child {
-    margin-left: 60px;
-  } */
 
   .pack {
     margin-top: -20px;

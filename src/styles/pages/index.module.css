@@ -96,9 +96,15 @@
 @media only screen and (max-width: 600px) {
   .packContainer {
     padding: 60px 60px 60px;
+    gap: 20px;
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .packContainer {
+    gap: 10px;
+  }
+}
 .packProgress {
   margin-top: -50px;
   width: 100%;
@@ -132,6 +138,8 @@
 }
 
 .svgArrow {
+  min-width: 48px;
+  min-height: 48px;
   cursor: pointer;
 }
 
